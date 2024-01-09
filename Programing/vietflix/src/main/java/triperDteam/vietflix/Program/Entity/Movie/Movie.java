@@ -24,7 +24,7 @@ public class Movie {
     private String actor;
     private List<String> genres = new ArrayList<>();
     private int year;
-    private String imdbID;
+    private float imdbID;
 
     public void addNewGenre(String genre)
     {

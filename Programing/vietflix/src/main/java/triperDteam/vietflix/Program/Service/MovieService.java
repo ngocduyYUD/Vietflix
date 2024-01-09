@@ -19,23 +19,39 @@ public class MovieService {
     private List<MovieGenreModel> movieGenreModels = new ArrayList<>();
     private List<MovieLanguageModel> movieLanguageModels = new ArrayList<>();
 
-    public List<Movie> setListMovie()
+    private void loadGenreLanguageData()
     {
-        loadGenreLanguageData();
-        List<Movie> movies = movieDal.getListMovie();
-        for(Movie movie: movies)
-        {
-            addGenreAndLanguage(movie);
-        }
-        System.out.println(Arrays.toString(movies.toArray()));
-        return movies;
+        movieGenreModels = movieDal.getListMovieGenreModel();
+        movieLanguageModels = movieDal.getListMovieLanguageModel();
     }
 
-    public Movie setMovieInfo(int id) {
-        Movie movie = movieDal.getMovieById(id);
-        loadGenreLanguageData();
-        addGenreAndLanguage(movie);
-        return movie;
+
+    private void getMachedLang(List<Movie> movies, String language)
+    {
+        for (int i = 0; i < movies.size(); i++) {
+            if(!movies.get(i).getLanguages().contains(language))
+            {
+                movies.remove(i);
+            }
+        }
+    }
+    private void getMachedGenre(List<Movie> movies, String genre)
+    {
+        for (int i = 0; i < movies.size(); i++) {
+            if(!movies.get(i).getGenres().contains(genre))
+            {
+                movies.remove(i);
+            }
+        }
+    }
+    private void getMachedYear(List<Movie> movies, int year)
+    {
+        for (int i = 0; i < movies.size(); i++) {
+            if(movies.get(i).getYear() != year)
+            {
+                movies.remove(i);
+            }
+        }
     }
     private void addGenreAndLanguage(Movie movie)
     {
@@ -54,12 +70,25 @@ public class MovieService {
             }
         }
     }
-    private void loadGenreLanguageData()
+
+    public List<Movie> setListMovie()
     {
-        movieGenreModels = movieDal.getListMovieGenreModel();
-        movieLanguageModels = movieDal.getListMovieLanguageModel();
+        loadGenreLanguageData();
+        List<Movie> movies = movieDal.getListMovie();
+        for(Movie movie: movies)
+        {
+            addGenreAndLanguage(movie);
+        }
+        System.out.println(Arrays.toString(movies.toArray()));
+        return movies;
     }
 
+    public Movie setMovieInfo(int id) {
+        Movie movie = movieDal.getMovieById(id);
+        loadGenreLanguageData();
+        addGenreAndLanguage(movie);
+        return movie;
+    }
     public List<Movie> setMovieHistory(int id)
     {
         loadGenreLanguageData();
@@ -70,8 +99,53 @@ public class MovieService {
         }
         System.out.println(Arrays.toString(movies.toArray()));
         return movies;
-
     }
 
+    public List<Movie> machingMovieByName(String name)
+    {
+        loadGenreLanguageData();
+        List<Movie> allMovies = movieDal.getListMovie();
+        for(Movie movie: allMovies)
+        {
+            addGenreAndLanguage(movie);
+        }
+        List<Movie> movies = new ArrayList<>();
+        for(Movie movie: allMovies)
+        {
+            if(movie.getName().toLowerCase().contains(name.toLowerCase()))
+            {
+                movies.add(movie);
+            }
+        }
+        return movies;
+    }
+    public List<Movie> setListFilterMovie(String conditions)
+    {
+        //conditions = language-genre-year-sort
+        String[] filters = conditions.split("-");
+        String language = filters[0];
+        String genre = filters[1];
+        String year = filters[2];
 
+        loadGenreLanguageData();
+        List<Movie> movies = movieDal.getListMovie();
+        for(Movie movie: movies)
+        {
+            addGenreAndLanguage(movie);
+        }
+        if(!language.equals("All"))
+        {
+            getMachedLang(movies, language);
+        }
+        if(!genre.equals("All"))
+        {
+            getMachedGenre(movies, genre);
+        }
+        if(!year.equals("All"))
+        {
+            getMachedYear(movies, Integer.parseInt(year));
+        }
+        System.out.println(Arrays.toString(movies.toArray()));
+        return movies;
+    }
 }

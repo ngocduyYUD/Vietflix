@@ -60,6 +60,36 @@ public class MovieController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @GetMapping("/searchMovie/{name}")
+    public ResponseEntity<List<Movie>> viewSearhMovieList(@PathVariable String name)
+    {
+        try{
+            List<Movie> movies = movieService.machingMovieByName(name);
+            if(movies.isEmpty())
+            {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(movies, HttpStatus.OK);
+        }catch (Exception e)
+        {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+    @GetMapping("/filterMovie/{conditions}")   //conditions = language-genre-year-sort
+    public ResponseEntity<List<Movie>> viewFilterMovieList(@PathVariable String conditions)
+    {
+        try{
+            List<Movie> movies = movieService.setListFilterMovie(conditions);
+            if(movies.isEmpty())
+            {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(movies, HttpStatus.OK);
+        }catch (Exception e)
+        {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 
 }

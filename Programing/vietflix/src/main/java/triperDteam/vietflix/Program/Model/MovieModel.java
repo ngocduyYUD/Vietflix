@@ -16,7 +16,7 @@ public class MovieModel {
     public String actor;
     public List<String> genres;
     public int year;
-    public String imdbID;
+    public Float imdbID;
     public MovieModel(Movie movie)
     {
         this.id = movie.getId();

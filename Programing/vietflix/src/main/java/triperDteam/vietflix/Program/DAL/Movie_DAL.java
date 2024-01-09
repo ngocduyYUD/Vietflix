@@ -38,7 +38,7 @@ public  class Movie_DAL implements MovieRepository{
                 movie.setActor(rs.getString(7));
                 movie.setDirector(rs.getString(11));
                 movie.setDescription(rs.getString(5));
-                movie.setImdbID(rs.getString(9));
+                movie.setImdbID(rs.getFloat(9));
                 movie.setLength(rs.getString(3));
                 movie.setThumbnail(rs.getString(6));
                 movie.setSource(rs.getString(4));
@@ -99,7 +99,7 @@ public  class Movie_DAL implements MovieRepository{
                 movie.setActor(rs.getString(7));
                 movie.setDirector(rs.getString(11));
                 movie.setDescription(rs.getString(5));
-                movie.setImdbID(rs.getString(9));
+                movie.setImdbID(rs.getFloat(9));
                 movie.setLength(rs.getString(3));
                 movie.setThumbnail(rs.getString(6));
                 movie.setSource(rs.getString(4));
@@ -123,7 +123,7 @@ public  class Movie_DAL implements MovieRepository{
                 movie.setActor(rs.getString(7));
                 movie.setDirector(rs.getString(11));
                 movie.setDescription(rs.getString(5));
-                movie.setImdbID(rs.getString(9));
+                movie.setImdbID(rs.getFloat(9));
                 movie.setLength(rs.getString(3));
                 movie.setThumbnail(rs.getString(6));
                 movie.setSource(rs.getString(4));
