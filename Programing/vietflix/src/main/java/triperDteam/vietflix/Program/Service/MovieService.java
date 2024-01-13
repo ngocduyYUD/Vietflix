@@ -46,6 +46,8 @@ public class MovieService {
     }
     private void getMachedYear(List<Movie> movies, int year)
     {
+        System.out.println(Arrays.toString(movies.toArray()));
+        System.out.println(year);
         for (int i = 0; i < movies.size(); i++) {
             if(movies.get(i).getYear() != year)
             {
@@ -143,9 +145,20 @@ public class MovieService {
         }
         if(!year.equals("All"))
         {
-            getMachedYear(movies, Integer.parseInt(year));
+            int intYear = Integer.parseInt(year);
+            getMachedYear(movies, intYear);
         }
-        System.out.println(Arrays.toString(movies.toArray()));
         return movies;
     }
+    public String setAddMovie(Movie movie)
+    {
+        return movieDal.saveNewMovie(movie);
+    }
+
+    public String setUpdateMovie(Movie movie)
+    {
+        return movieDal.c(movie);
+    }
+
+
 }

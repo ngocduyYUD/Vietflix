@@ -5,6 +5,8 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import triperDteam.vietflix.Program.Entity.Movie.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
+import triperDteam.vietflix.Program.Model.GenreModel;
+import triperDteam.vietflix.Program.Model.LanguageModel;
 import triperDteam.vietflix.Program.Model.MovieGenreModel;
 import triperDteam.vietflix.Program.Model.MovieLanguageModel;
 
@@ -136,9 +138,76 @@ public  class Movie_DAL implements MovieRepository{
     }
 
     @Override
-    public String updateGenre(int movie_id, int genre_id) {
-        return null;
+    public String saveNewMovie(Movie movie)
+    {
+        String sql = "INSERT INTO movie(movie_name, movie_actor, movie_director, movie_des, movie_point, movie_lenth, movie_thumb, movie_source, movie_year)\n" +
+                "VALUES (?, ?, ?, ? ,? ,? ,? ,? ,?);";
+        this.jdbcTemplate.update(sql, movie.getName(),
+                movie.getActor(),
+                movie.getDirector(),
+                movie.getDescription(),
+                movie.getImdbID(),
+                movie.getLength(),
+                movie.getThumbnail(),
+                movie.getSource(),
+                movie.getYear()
+        );
+        String getLastMovie = "SELECT * FROM TableName WHERE id=(SELECT max(id) FROM TableName);\n";
+        RowMapper<Movie> mapper = new RowMapper<Movie>() {
+            @Override
+            public Movie mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Movie movie = new Movie();
+                movie.setId(rs.getInt(1));
+                return movie;
+            }
+        };
+        String getGenre = "select * from genre";
+        RowMapper<GenreModel> genreMapper = new RowMapper<GenreModel>() {
+            @Override
+            public GenreModel mapRow(ResultSet rs, int rowNum) throws SQLException {
+                GenreModel genre = new GenreModel();
+                genre.setGenre_id(rs.getInt(1));
+                genre.setGenre_name(rs.getString(2));
+                return genre;
+            }
+        };
+        String getLanguage = "select * from language";
+        RowMapper<LanguageModel> langMapper = new RowMapper<LanguageModel>() {
+            @Override
+            public LanguageModel mapRow(ResultSet rs, int rowNum) throws SQLException {
+                LanguageModel language = new LanguageModel();
+                language.setLanguage_id(rs.getInt(1));
+                language.setLanguage(rs.getString(2));
+                return language;
+            }
+        };
+        List<LanguageModel> languages = this.jdbcTemplate.query(getLanguage, langMapper);
+        List<GenreModel> genres = this.jdbcTemplate.query(getGenre,genreMapper);
+        movie.setId(this.jdbcTemplate.query(getLastMovie, mapper).get(0).getId());
+        String sqlGenreUpdate = "insert into mov_genre(movie_id, genre_id) value(?,?);";
+        String sqlLanguageUpdate = "insert into mov_language(movie_id, language_id) value(?,?);";
+        for(GenreModel genre: genres)
+        {
+            if(movie.getGenres().contains(genre.getGenre_name()))
+            {
+                this.jdbcTemplate.update(sqlGenreUpdate, movie.getId(), genre.getGenre_id());
+            }
+        }
+        for(LanguageModel language: languages)
+        {
+            if(movie.getLanguages().contains(language.getLanguage()))
+            {
+                this.jdbcTemplate.update(sqlLanguageUpdate, movie.getId(), language.getLanguage_id());
+            }
+        }
+        return "Successful";
     }
+    @Override
+    public String saveUpdateMovie(Movie movie)
+    {
+
+    }
+
 }
 
 

@@ -13,4 +13,8 @@ public interface MovieRepository {
     List<MovieLanguageModel> getListMovieLanguageModel();
     Movie getMovieById(int id);
     List<Movie> getMemberHistory(int id);
+
+    String saveNewMovie(Movie movie);
+
+    String saveUpdateMovie(Movie movie);
 }
