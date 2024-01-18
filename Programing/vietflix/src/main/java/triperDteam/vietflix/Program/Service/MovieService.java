@@ -157,8 +157,11 @@ public class MovieService {
 
     public String setUpdateMovie(Movie movie)
     {
-        return movieDal.c(movie);
+        return movieDal.saveUpdateMovie(movie);
     }
-
+    public String deleteMovieById(int id)
+    {
+        return movieDal.deleteMovie(id);
+    }
 
 }

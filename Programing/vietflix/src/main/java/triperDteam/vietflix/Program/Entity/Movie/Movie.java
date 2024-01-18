@@ -25,6 +25,7 @@ public class Movie {
     private List<String> genres = new ArrayList<>();
     private int year;
     private float imdbID;
+    private String trailer;
 
     public void addNewGenre(String genre)
     {

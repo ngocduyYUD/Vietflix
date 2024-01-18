@@ -60,6 +60,19 @@ public class AdminMovieController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    @PostMapping("/delete/{id}")
+    public ResponseEntity<String> deleteMovie(@PathVariable int id)
+    {
+        try {
+            String result = movieService.deleteMovieById(id);
+            if(!result.equals("Successful"))
+            {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(result, HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 
 }

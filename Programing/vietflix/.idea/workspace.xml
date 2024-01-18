@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a49dc17-abd6-47a8-a75a-01dd0e1b7415" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Model/GenreModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Model/LanguageModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Astah files/VietflixAstah.asta" beforeDir="false" afterPath="$PROJECT_DIR$/../../Astah files/VietflixAstah.asta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Astah files/VietflixAstah.asta.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/AdminMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/AdminMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/MovieController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/MovieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/MovieRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Movie_DAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Movie_DAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Entity/Movie/Movie.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Entity/Movie/Movie.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/MovieService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

@@ -8,7 +8,6 @@ import java.util.List;
 
 public interface MovieRepository {
     List<Movie> getListMovie();
-    String updateGenre(int movie_id, int genre_id);
     List<MovieGenreModel> getListMovieGenreModel();
     List<MovieLanguageModel> getListMovieLanguageModel();
     Movie getMovieById(int id);
@@ -17,4 +16,5 @@ public interface MovieRepository {
     String saveNewMovie(Movie movie);
 
     String saveUpdateMovie(Movie movie);
+    String deleteMovie(int id);
 }
