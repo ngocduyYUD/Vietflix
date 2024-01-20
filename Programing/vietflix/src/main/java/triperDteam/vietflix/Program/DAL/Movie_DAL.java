@@ -5,10 +5,7 @@ import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 import triperDteam.vietflix.Program.Entity.Movie.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
-import triperDteam.vietflix.Program.Model.GenreModel;
-import triperDteam.vietflix.Program.Model.LanguageModel;
-import triperDteam.vietflix.Program.Model.MovieGenreModel;
-import triperDteam.vietflix.Program.Model.MovieLanguageModel;
+import triperDteam.vietflix.Program.Model.*;
 
 
 import javax.sql.DataSource;
@@ -141,20 +138,20 @@ public  class Movie_DAL implements MovieRepository{
     }
 
     @Override
-    public String saveNewMovie(Movie movie)
+    public String saveNewMovie(MovieModel movieModel)
     {
         String sql = "INSERT INTO movie(movie_name, movie_actor, movie_director, movie_des, movie_point, movie_lenth, movie_thumb, movie_source, movie_year, trailer_source)\n" +
                 "VALUES (?, ?, ?, ? ,? ,? ,? ,? ,?);";
-        this.jdbcTemplate.update(sql, movie.getName(),
-                movie.getActor(),
-                movie.getDirector(),
-                movie.getDescription(),
-                movie.getImdbID(),
-                movie.getLength(),
-                movie.getThumbnail(),
-                movie.getSource(),
-                movie.getYear(),
-                movie.getTrailer()
+        this.jdbcTemplate.update(sql, movieModel.getName(),
+                movieModel.getActor(),
+                movieModel.getDirector(),
+                movieModel.getDescription(),
+                movieModel.getImdbID(),
+                movieModel.getLength(),
+                movieModel.getThumbnail(),
+                movieModel.getSource(),
+                movieModel.getYear(),
+                movieModel.getTrailer()
         );
         String getLastMovie = "SELECT * FROM TableName WHERE id=(SELECT max(id) FROM TableName);\n";
         RowMapper<Movie> mapper = new RowMapper<Movie>() {
@@ -162,6 +159,16 @@ public  class Movie_DAL implements MovieRepository{
             public Movie mapRow(ResultSet rs, int rowNum) throws SQLException {
                 Movie movie = new Movie();
                 movie.setId(rs.getInt(1));
+                movie.setName(rs.getString(2));
+                movie.setActor(rs.getString(7));
+                movie.setDirector(rs.getString(11));
+                movie.setDescription(rs.getString(5));
+                movie.setImdbID(rs.getFloat(9));
+                movie.setLength(rs.getString(3));
+                movie.setThumbnail(rs.getString(6));
+                movie.setSource(rs.getString(4));
+                movie.setYear(rs.getInt(8));
+                movie.setTrailer(rs.getString(10));
                 return movie;
             }
         };
@@ -187,7 +194,7 @@ public  class Movie_DAL implements MovieRepository{
         };
         List<LanguageModel> languages = this.jdbcTemplate.query(getLanguage, langMapper);
         List<GenreModel> genres = this.jdbcTemplate.query(getGenre,genreMapper);
-        movie.setId(this.jdbcTemplate.query(getLastMovie, mapper).get(0).getId());
+        Movie movie = this.jdbcTemplate.query(getLastMovie, mapper).get(0);
         String sqlGenreUpdate = "insert into mov_genre(movie_id, genre_id) value(?,?);";
         String sqlLanguageUpdate = "insert into mov_language(movie_id, language_id) value(?,?);";
         for(GenreModel genre: genres)
@@ -246,11 +253,11 @@ public  class Movie_DAL implements MovieRepository{
         };
         List<LanguageModel> languages = this.jdbcTemplate.query(getLanguage, langMapper);
         List<GenreModel> genres = this.jdbcTemplate.query(getGenre,genreMapper);
-        String languageUpdate = "insert into mov_language(movie_id, language_id)" +
-                "select ?,?" +
+        String languageUpdate = "insert into mov_language(movie_id, language_id)\n" +
+                "select ?,?\n" +
                 "where not exists(select * from mov_language where movie_id = ? and language_id = ?)";
-        String genreUpdate = "insert into mov_genre(movie_id, genre_id)" +
-                "select ?,?" +
+        String genreUpdate = "insert into mov_genre(movie_id, genre_id)\n" +
+                "select ?,?\n" +
                 "where not exists(select * from mov_genre where movie_id = ? and genre_id = ?)";
         for(LanguageModel language: languages)
         {
@@ -283,6 +290,15 @@ public  class Movie_DAL implements MovieRepository{
         this.jdbcTemplate.update(deleteFavourite, id);
         this.jdbcTemplate.update(deleteHistory, id);
         return "delete successful";
+    }
+
+    @Override
+    public void addMemberFavourite(int movieId, int memberId)
+    {
+        String favouriteUpdate = "insert into favourite(movie_id, member_id)\n" +
+                "select ?,?\n" +
+                "where not exists(select * from favourite where movie_id = ? and member_id = ?)";
+        this.jdbcTemplate.update(favouriteUpdate, movieId, memberId, movieId, memberId);
     }
 
 }

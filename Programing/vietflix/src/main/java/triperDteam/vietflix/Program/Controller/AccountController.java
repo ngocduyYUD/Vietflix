@@ -34,8 +34,13 @@ public class AccountController {
         {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
-
     }
 
+    @GetMapping("/checkBoughtPackage/{id}")
+    public ResponseEntity<Boolean> checkMemberBoughtPackage(@PathVariable int id)
+    {
+        boolean alreadyBought = accountService.checkMemberPackageExpirationDate(id);
+        return new ResponseEntity<>(alreadyBought, HttpStatus.OK);
+    }
 
 }

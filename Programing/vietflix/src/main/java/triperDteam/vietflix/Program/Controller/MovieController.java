@@ -3,6 +3,7 @@ package triperDteam.vietflix.Program.Controller;
 import org.springframework.web.bind.annotation.*;
 import triperDteam.vietflix.Program.Entity.Movie.Movie;
 import triperDteam.vietflix.Program.Model.MovieModel;
+import triperDteam.vietflix.Program.Service.AccountService;
 import triperDteam.vietflix.Program.Service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,8 @@ import java.util.List;
 public class MovieController {
     @Autowired
     MovieService movieService;
-
+    @Autowired
+    AccountService accountService;
     @GetMapping("/viewAllMovie")
     public ResponseEntity<List<Movie>> viewAllMovie(){
         try{
@@ -90,5 +92,18 @@ public class MovieController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+    @GetMapping("/watch/{id}")
+    public ResponseEntity<String> getMovieSource(@PathVariable String id)
+    {
+        String source = movieService.getMovieSouceById(id);
+        accountService.saveMovieToHistory(id);
+        return new ResponseEntity<>(source, HttpStatus.OK);
+    }
 
+    @PostMapping("/favourite/{id}")
+    public ResponseEntity<String> addMovieToFavourite(@PathVariable String id)
+    {
+        movieService.addFavouriteMovie(id);
+        return new ResponseEntity<>(null, HttpStatus.OK);
+    }
 }

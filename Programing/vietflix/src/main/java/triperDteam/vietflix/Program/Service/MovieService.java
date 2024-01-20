@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import triperDteam.vietflix.Program.Model.MovieGenreModel;
 import triperDteam.vietflix.Program.Model.MovieLanguageModel;
+import triperDteam.vietflix.Program.Model.MovieModel;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -150,7 +151,7 @@ public class MovieService {
         }
         return movies;
     }
-    public String setAddMovie(Movie movie)
+    public String setAddMovie(MovieModel movie)
     {
         return movieDal.saveNewMovie(movie);
     }
@@ -162,6 +163,21 @@ public class MovieService {
     public String deleteMovieById(int id)
     {
         return movieDal.deleteMovie(id);
+    }
+    public String getMovieSouceById(String id)
+    {
+        String[] allId = id.split("-");
+        int movieId = Integer.parseInt(allId[0]);
+        Movie movie = movieDal.getMovieById(movieId);
+        return movie.getSource();
+    }
+
+    public void addFavouriteMovie(String id)
+    {
+        String[] allId = id.split("-");
+        int movieId = Integer.parseInt(allId[0]);
+        int memberId = Integer.parseInt(allId[1]);
+        movieDal.addMemberFavourite(movieId, memberId);
     }
 
 }

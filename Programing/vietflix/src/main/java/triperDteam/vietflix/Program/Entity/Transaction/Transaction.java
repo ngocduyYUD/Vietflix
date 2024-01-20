@@ -1,14 +1,17 @@
-package triperDteam.vietflix.Program.Entity.Cart;
+package triperDteam.vietflix.Program.Entity.Transaction;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+
 @Data
 @AllArgsConstructor
-public class Cart {
+public class Transaction {
     private String cardHolderName;
     private String cardNumber;
     private int securityCode;
     private String expiratonDate;
+    private Float packagePrice;
+    private int memberId;
+    private int packageId;
 }
 

@@ -5,10 +5,13 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import triperDteam.vietflix.Program.Entity.Movie.Movie;
+import triperDteam.vietflix.Program.Model.MovieModel;
 import triperDteam.vietflix.Program.Service.MovieService;
 
+import java.util.List;
+
 @RestController
-@RequestMapping("admin")
+@RequestMapping("api/admin")
 public class AdminMovieController {
 
     @Autowired
@@ -28,7 +31,7 @@ public class AdminMovieController {
         }
     }
     @PostMapping("/add")
-    public ResponseEntity<String> addNewMovie(@RequestBody Movie movie)
+    public ResponseEntity<String> addNewMovie(@RequestBody MovieModel movie)
     {
         try{
             String result = movieService.setAddMovie(movie);
@@ -74,5 +77,17 @@ public class AdminMovieController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
+    @GetMapping("/viewAllMovie")
+    public ResponseEntity<List<Movie>> viewAllMovie(){
+        try{
+            List<Movie> movies = movieService.setListMovie();
+            if(movies.isEmpty())
+            {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(movies, HttpStatus.OK);
+        }catch (Exception e){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

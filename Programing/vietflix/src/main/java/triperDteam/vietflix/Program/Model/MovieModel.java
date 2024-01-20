@@ -1,25 +1,30 @@
 package triperDteam.vietflix.Program.Model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import triperDteam.vietflix.Program.Entity.Movie.Movie;
 
+import java.util.ArrayList;
 import java.util.List;
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class MovieModel {
-    public int id;
-    public String name;
-    public String length;
-    public List<String> languages;
-    public String source;
-    public String description;
-    public String director;
-    public String thumbnail;
-    public String actor;
-    public List<String> genres;
-    public int year;
-    public Float imdbID;
+    private String name;
+    private String length;
+    private List<String> languages = new ArrayList<>();
+    private String source;
+    private String description;
+    private String director;
+    private String thumbnail;
+    private String actor;
+    private List<String> genres = new ArrayList<>();
+    private int year;
+    private float imdbID;
+    private String trailer;
     public MovieModel(Movie movie)
     {
-        this.id = movie.getId();
         this.name = movie.getName();
         this.length = movie.getLength();
         this.languages = movie.getLanguages();
@@ -31,5 +36,6 @@ public class MovieModel {
         this.genres = movie.getGenres();
         this.year = movie.getYear();
         this.imdbID = movie.getImdbID();
+        this.trailer = movie.getTrailer();
     }
 }
