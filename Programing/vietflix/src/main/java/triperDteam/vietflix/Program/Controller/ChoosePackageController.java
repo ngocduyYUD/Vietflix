@@ -3,10 +3,7 @@ package triperDteam.vietflix.Program.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import triperDteam.vietflix.Program.Bank.BankService;
 import triperDteam.vietflix.Program.Entity.Transaction.Transaction;
 import triperDteam.vietflix.Program.Entity.Package.Package;
@@ -15,7 +12,8 @@ import triperDteam.vietflix.Program.Service.PackageService;
 
 import java.util.List;
 
-@RestController("package")
+@RestController
+@RequestMapping("api/package")
 public class ChoosePackageController {
     @Autowired
     PackageService packageService;

@@ -12,7 +12,10 @@ import javax.sql.DataSource;
 import javax.xml.crypto.Data;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Timestamp;
+import java.text.SimpleDateFormat;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 @Repository
 public  class Movie_DAL implements MovieRepository{
@@ -138,22 +141,28 @@ public  class Movie_DAL implements MovieRepository{
     }
 
     @Override
-    public String saveNewMovie(MovieModel movieModel)
-    {
-        String sql = "INSERT INTO movie(movie_name, movie_actor, movie_director, movie_des, movie_point, movie_lenth, movie_thumb, movie_source, movie_year, trailer_source)\n" +
-                "VALUES (?, ?, ?, ? ,? ,? ,? ,? ,?);";
+    public String saveNewMovie(MovieModel movieModel) {
+        String sql = "INSERT INTO movie(movie_name, movie_actor, movie_director, movie_des, movie_point, movie_length, movie_thumb, movie_source, movie_year, trailer_source)\n" +
+                "VALUES (?, ?, ?, ? ,? ,? ,? ,? ,?, ?);";
+        Timestamp movie_length = null;
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+            Date parsedDate = dateFormat.parse(movieModel.getLength());
+            movie_length = new Timestamp(parsedDate.getTime());
+        } catch (Exception e) {
+        }
         this.jdbcTemplate.update(sql, movieModel.getName(),
                 movieModel.getActor(),
                 movieModel.getDirector(),
                 movieModel.getDescription(),
                 movieModel.getImdbID(),
-                movieModel.getLength(),
+                movie_length,
                 movieModel.getThumbnail(),
                 movieModel.getSource(),
                 movieModel.getYear(),
                 movieModel.getTrailer()
         );
-        String getLastMovie = "SELECT * FROM TableName WHERE id=(SELECT max(id) FROM TableName);\n";
+        String getLastMovie = "SELECT * FROM movie WHERE movie_id=(SELECT max(movie_id) FROM movie);\n";
         RowMapper<Movie> mapper = new RowMapper<Movie>() {
             @Override
             public Movie mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -182,7 +191,7 @@ public  class Movie_DAL implements MovieRepository{
                 return genre;
             }
         };
-        String getLanguage = "select * from language";
+        String getLanguage = "select * from \"Language\"";
         RowMapper<LanguageModel> langMapper = new RowMapper<LanguageModel>() {
             @Override
             public LanguageModel mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -193,21 +202,19 @@ public  class Movie_DAL implements MovieRepository{
             }
         };
         List<LanguageModel> languages = this.jdbcTemplate.query(getLanguage, langMapper);
-        List<GenreModel> genres = this.jdbcTemplate.query(getGenre,genreMapper);
+        List<GenreModel> genres = this.jdbcTemplate.query(getGenre, genreMapper);
         Movie movie = this.jdbcTemplate.query(getLastMovie, mapper).get(0);
-        String sqlGenreUpdate = "insert into mov_genre(movie_id, genre_id) value(?,?);";
-        String sqlLanguageUpdate = "insert into mov_language(movie_id, language_id) value(?,?);";
-        for(GenreModel genre: genres)
-        {
-            if(movie.getGenres().contains(genre.getGenre_name()))
-            {
+        movie.setGenres(movieModel.getGenres());
+        movie.setLanguages(movieModel.getLanguages());
+        String sqlGenreUpdate = "insert into mov_genre(movie_id, genre_id) values(?,?);";
+        String sqlLanguageUpdate = "insert into mov_language(movie_id, language_id) values(?,?);";
+        for (GenreModel genre : genres) {
+            if (movie.getGenres().contains(genre.getGenre_name())) {
                 this.jdbcTemplate.update(sqlGenreUpdate, movie.getId(), genre.getGenre_id());
             }
         }
-        for(LanguageModel language: languages)
-        {
-            if(movie.getLanguages().contains(language.getLanguage()))
-            {
+        for (LanguageModel language : languages) {
+            if (movie.getLanguages().contains(language.getLanguage())) {
                 this.jdbcTemplate.update(sqlLanguageUpdate, movie.getId(), language.getLanguage_id());
             }
         }
@@ -216,11 +223,18 @@ public  class Movie_DAL implements MovieRepository{
     @Override
     public String saveUpdateMovie(Movie movie)
     {
-        String sql = "update movie set movie_name = ?, movie_length = ?, " +
-                    "movie_source = ?, movie_des = ?, movie_thumb = ?, movie_actor = ?, movie_year = ?, movie_point = ?," +
+        String sql = "update movie set movie_name = ?, movie_length = ?, \n" +
+                    "movie_source = ?, movie_des = ?, movie_thumb = ?, movie_actor = ?, movie_year = ?, movie_point = ?,\n" +
                 "trailer_source = ?, movie_director = ? where movie_id = ?";
+        Timestamp movie_length = null;
+        try {
+            SimpleDateFormat dateFormat = new SimpleDateFormat("hh:mm:ss");
+            Date parsedDate = dateFormat.parse(movie.getLength());
+            movie_length = new Timestamp(parsedDate.getTime());
+        } catch (Exception e) {
+        }
         this.jdbcTemplate.update(sql, movie.getName(),
-                movie.getLength(),
+                movie_length,
                 movie.getSource(),
                 movie.getDescription(),
                 movie.getThumbnail(),
@@ -241,7 +255,7 @@ public  class Movie_DAL implements MovieRepository{
                 return genre;
             }
         };
-        String getLanguage = "select * from language";
+        String getLanguage = "select * from \"Language\"";
         RowMapper<LanguageModel> langMapper = new RowMapper<LanguageModel>() {
             @Override
             public LanguageModel mapRow(ResultSet rs, int rowNum) throws SQLException {
@@ -259,6 +273,10 @@ public  class Movie_DAL implements MovieRepository{
         String genreUpdate = "insert into mov_genre(movie_id, genre_id)\n" +
                 "select ?,?\n" +
                 "where not exists(select * from mov_genre where movie_id = ? and genre_id = ?)";
+        String deleteGenre = "delete from mov_genre where movie_id =?";
+        String deleteLanguage = "delete from mov_language where movie_id =?";
+        this.jdbcTemplate.update(deleteGenre, movie.getId());
+        this.jdbcTemplate.update(deleteLanguage, movie.getId());
         for(LanguageModel language: languages)
         {
             if(movie.getLanguages().contains(language.getLanguage()))
@@ -284,11 +302,11 @@ public  class Movie_DAL implements MovieRepository{
         String deleteLanguage = "delete from mov_language where movie_id =?";
         String deleteFavourite = "delete from favourite where movie_id = ?";
         String deleteHistory = "delete from history where movie_id = ?";
-        this.jdbcTemplate.update(sql, id);
         this.jdbcTemplate.update(deleteGenre, id);
         this.jdbcTemplate.update(deleteLanguage, id);
         this.jdbcTemplate.update(deleteFavourite, id);
         this.jdbcTemplate.update(deleteHistory, id);
+        this.jdbcTemplate.update(sql, id);
         return "delete successful";
     }
 

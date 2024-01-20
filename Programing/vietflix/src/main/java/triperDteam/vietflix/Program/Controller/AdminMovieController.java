@@ -52,7 +52,7 @@ public class AdminMovieController {
     {
         try{
             String result = movieService.setUpdateMovie(movie);
-            if(!result.equals("Successful"))
+            if(!result.equals("update successful"))
             {
                 return new ResponseEntity<>(result, HttpStatus.NO_CONTENT);
             }
@@ -68,7 +68,7 @@ public class AdminMovieController {
     {
         try {
             String result = movieService.deleteMovieById(id);
-            if(!result.equals("Successful"))
+            if(!result.equals("delete successful"))
             {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

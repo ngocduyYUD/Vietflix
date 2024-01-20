@@ -72,12 +72,14 @@ public class Member_DAL implements MemberRepository{
         {
             if(packageId == pack.getPack_id())
             {
-                currentTime.plusMonths(pack.getPack_time());
+                currentTime = currentTime.plusDays((long) pack.getPack_time());
                 break;
             }
         }
-        String expPackage = currentTime.format(formatter);
+        LocalDateTime expPackage = LocalDateTime.parse(currentTime.format(formatter), formatter);
         this.jdbcTemplate.update(sqlUpdatePackage, packageId, expPackage, memberId);
+        System.out.println("asdasd");
+        System.out.println("asdasd");
     }
     @Override
     public void updateHistory(int movieId, int memberId)
