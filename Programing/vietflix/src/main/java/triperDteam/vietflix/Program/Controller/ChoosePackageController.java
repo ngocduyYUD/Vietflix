@@ -11,7 +11,7 @@ import triperDteam.vietflix.Program.Service.AccountService;
 import triperDteam.vietflix.Program.Service.PackageService;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:5173/", maxAge = 3600)
 @RestController
 @RequestMapping("api/package")
 public class ChoosePackageController {
