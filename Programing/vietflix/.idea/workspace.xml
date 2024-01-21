@@ -5,15 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a49dc17-abd6-47a8-a75a-01dd0e1b7415" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Detailed Design/DataBase/backupdata.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Detailed Design/DataBase/createdatabase.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Detailed Design/DataBase/vietflixdbBackup.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Bank/BankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Bank/BankService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/AdminMovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/AdminMovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/ChoosePackageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/ChoosePackageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Member_DAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Member_DAL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Movie_DAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Movie_DAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,22 +49,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.VietflixApplication.executor": "Debug",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Programing",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/DoAn/project/Vietflix/Programing/vietflix/src/main/java/tripperDteam",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.VietflixApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Programing&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/Du/Vietflix/Programing/vietflix&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Problems&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RunManager">
+    <configuration name="VietflixApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <option name="FRAME_DEACTIVATION_UPDATE_POLICY" value="UpdateClassesAndResources" />
+      <module name="vietflix" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="triperDteam.vietflix.VietflixApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="jdk-17.0.9-corretto-17.0.9-8336523bb0d9-93b19daf" />
+        <option value="jdk-17.0.10-liberica-17.0.10-f644763e9732-5e17401f" />
+        <option value="jdk-18.0.2-corretto-18.0.2-f644763e9732-56b8144a" />
       </set>
     </attachedChunks>
   </component>
@@ -80,12 +96,18 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1702371829290</updated>
+      <workItem from="1705814194217" duration="1364000" />
+      <workItem from="1705815621242" duration="12000" />
+      <workItem from="1705815655623" duration="1002000" />
     </task>
     <servers />
   </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
   <component name="VcsManagerConfiguration">
     <ignored-roots>
-      <path value="$PROJECT_DIR$/../../../" />
+      <path value="$USER_HOME$/" />
     </ignored-roots>
   </component>
   <component name="XDebuggerManager">
