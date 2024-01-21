@@ -9,7 +9,7 @@ import triperDteam.vietflix.Program.Model.MovieModel;
 import triperDteam.vietflix.Program.Service.MovieService;
 
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:5173/", maxAge = 3600)
 @RestController
 @RequestMapping("api/admin")
 public class AdminMovieController {

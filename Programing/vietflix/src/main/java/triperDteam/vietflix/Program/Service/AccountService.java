@@ -42,4 +42,32 @@ public class AccountService {
         int userId = Integer.parseInt(allId[1]);
         memberDal.updateHistory(movieId, userId);
     }
+
+    public Member matchingMemberAccount(String data)
+    {
+        String[] memberData = data.split("-");
+        String mail = memberData[0];
+        String pass = memberData[1];
+        Member returnMember = null;
+        List<Member> members = memberDal.getListMember();
+        for (Member member: members)
+        {
+            if(member.getMail().equals(mail) && member.getPass().equals(pass))
+            {
+                returnMember = member;
+            }
+        }
+        return returnMember;
+    }
+
+    public String getMemberPass(int id)
+    {
+        Member member = memberDal.getMemberInfoById(id);
+        return member.getPass();
+    }
+
+    public String saveNewMemberInfo(Member member)
+    {
+        return memberDal.updateMemberInfo(member);
+    }
 }

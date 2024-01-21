@@ -2,6 +2,8 @@ package triperDteam.vietflix.Program.Controller;
 
 import org.springframework.web.bind.annotation.*;
 import triperDteam.vietflix.Program.Entity.Movie.Movie;
+import triperDteam.vietflix.Program.Model.GenreModel;
+import triperDteam.vietflix.Program.Model.LanguageModel;
 import triperDteam.vietflix.Program.Model.MovieModel;
 import triperDteam.vietflix.Program.Service.AccountService;
 import triperDteam.vietflix.Program.Service.MovieService;
@@ -12,7 +14,7 @@ import org.springframework.http.ResponseEntity;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
+@CrossOrigin(origins = "http://localhost:5173/", maxAge = 3600)
 @RestController
 @RequestMapping("api/movies")
 public class MovieController {
@@ -105,5 +107,18 @@ public class MovieController {
     {
         movieService.addFavouriteMovie(id);
         return new ResponseEntity<>(null, HttpStatus.OK);
+    }
+    @GetMapping("/getListLanguage")
+    public ResponseEntity<List<LanguageModel>> viewListLanguage()
+    {
+        List<LanguageModel> languageModel = movieService.setListLanguage();
+        return new ResponseEntity<>(languageModel, HttpStatus.OK);
+    }
+
+    @GetMapping("/getListGenre")
+    public ResponseEntity<List<GenreModel>> viewListGenre()
+    {
+        List<GenreModel> genreModels = movieService.setListGenre();
+        return new ResponseEntity<>(genreModels, HttpStatus.OK);
     }
 }

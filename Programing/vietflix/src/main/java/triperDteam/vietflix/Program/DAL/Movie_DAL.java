@@ -318,6 +318,38 @@ public  class Movie_DAL implements MovieRepository{
                 "where not exists(select * from favourite where movie_id = ? and member_id = ?)";
         this.jdbcTemplate.update(favouriteUpdate, movieId, memberId, movieId, memberId);
     }
+    @Override
+    public List<LanguageModel> getListLanguage()
+    {
+        String getLanguage = "select * from \"Language\"";
+        RowMapper<LanguageModel> langMapper = new RowMapper<LanguageModel>() {
+            @Override
+            public LanguageModel mapRow(ResultSet rs, int rowNum) throws SQLException {
+                LanguageModel language = new LanguageModel();
+                language.setLanguage_id(rs.getInt(1));
+                language.setLanguage(rs.getString(2));
+                return language;
+            }
+        };
+        List<LanguageModel> languages = this.jdbcTemplate.query(getLanguage, langMapper);
+        return languages;
+    }
+    @Override
+    public List<GenreModel> getListGenre()
+    {
+        String getGenre = "select * from genre";
+        RowMapper<GenreModel> genreMapper = new RowMapper<GenreModel>() {
+            @Override
+            public GenreModel mapRow(ResultSet rs, int rowNum) throws SQLException {
+                GenreModel genre = new GenreModel();
+                genre.setGenre_id(rs.getInt(1));
+                genre.setGenre_name(rs.getString(2));
+                return genre;
+            }
+        };
+        List<GenreModel> genres = this.jdbcTemplate.query(getGenre, genreMapper);
+        return genres;
+    }
 
 }
 
