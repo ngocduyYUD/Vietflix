@@ -78,8 +78,6 @@ public class Member_DAL implements MemberRepository{
         }
         LocalDateTime expPackage = LocalDateTime.parse(currentTime.format(formatter), formatter);
         this.jdbcTemplate.update(sqlUpdatePackage, packageId, expPackage, memberId);
-        System.out.println("asdasd");
-        System.out.println("asdasd");
     }
     @Override
     public void updateHistory(int movieId, int memberId)
@@ -89,4 +87,33 @@ public class Member_DAL implements MemberRepository{
                 "where not exists(select * from history where movie_id = ? and member_id = ?)";
         this.jdbcTemplate.update(sql, movieId, memberId, movieId, memberId);
     }
+    @Override
+    public List<Member> getListMember()
+    {
+        String sql = "select * from \"Member\"";
+        RowMapper<Member> mapper = new RowMapper<Member>() {
+            @Override
+            public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Member member = new Member();
+                member.setMember_id(rs.getInt(1));
+                member.setMember_name(rs.getString(4));
+                member.setMail(rs.getString(2));
+                member.setPass(rs.getString(3));
+                member.setPackage_id(rs.getInt(5));
+                member.setExp_package(rs.getString(6));
+                return member;
+            }
+        };
+        List<Member> members = this.jdbcTemplate.query(sql, mapper);
+        return members;
+    }
+    @Override
+    public String updateMemberInfo(Member member)
+    {
+        String sql = "update \"Member\" set member_name = ?, pass = ?, mail = ? where member_id = ?";
+        this.jdbcTemplate.update(sql, member.getMember_name(), member.getPass(), member.getMail(), member.getMember_id());
+        System.out.println("asd");
+        return "update member successful";
+    }
+
 }

@@ -1,9 +1,7 @@
 package triperDteam.vietflix.Program.DAL;
 
 import triperDteam.vietflix.Program.Entity.Movie.Movie;
-import triperDteam.vietflix.Program.Model.MovieGenreModel;
-import triperDteam.vietflix.Program.Model.MovieLanguageModel;
-import triperDteam.vietflix.Program.Model.MovieModel;
+import triperDteam.vietflix.Program.Model.*;
 
 import java.util.List;
 
@@ -19,4 +17,7 @@ public interface MovieRepository {
     String saveUpdateMovie(Movie movie);
     String deleteMovie(int id);
     void addMemberFavourite(int movieId, int memberId);
+
+    List<GenreModel> getListGenre();
+    List<LanguageModel> getListLanguage();
 }

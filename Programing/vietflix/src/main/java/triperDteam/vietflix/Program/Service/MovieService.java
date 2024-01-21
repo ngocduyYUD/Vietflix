@@ -4,9 +4,7 @@ import triperDteam.vietflix.Program.DAL.Movie_DAL;
 import triperDteam.vietflix.Program.Entity.Movie.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import triperDteam.vietflix.Program.Model.MovieGenreModel;
-import triperDteam.vietflix.Program.Model.MovieLanguageModel;
-import triperDteam.vietflix.Program.Model.MovieModel;
+import triperDteam.vietflix.Program.Model.*;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -178,6 +176,15 @@ public class MovieService {
         int movieId = Integer.parseInt(allId[0]);
         int memberId = Integer.parseInt(allId[1]);
         movieDal.addMemberFavourite(movieId, memberId);
+    }
+    public List<LanguageModel> setListLanguage()
+    {
+        return movieDal.getListLanguage();
+    }
+
+    public List<GenreModel> setListGenre()
+    {
+        return movieDal.getListGenre();
     }
 
 }
