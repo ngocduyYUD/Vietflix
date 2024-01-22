@@ -20,4 +20,6 @@ public interface MovieRepository {
 
     List<GenreModel> getListGenre();
     List<LanguageModel> getListLanguage();
+
+    List<Movie> getListFavourite(int id);
 }

@@ -350,6 +350,32 @@ public  class Movie_DAL implements MovieRepository{
         List<GenreModel> genres = this.jdbcTemplate.query(getGenre, genreMapper);
         return genres;
     }
+    @Override
+    public List<Movie> getListFavourite(int id)
+    {
+        String sql = "select * from movie, favourite where movie.movie_id = favourite.movie_id and favourite.member_id = " + id;
+        RowMapper<Movie> mapper = new RowMapper<Movie>() {
+            @Override
+            public Movie mapRow(ResultSet rs, int rowNum) throws SQLException {
+                Movie movie = new Movie();
+                movie.setId(rs.getInt(1));
+                movie.setName(rs.getString(2));
+                movie.setActor(rs.getString(7));
+                movie.setDirector(rs.getString(11));
+                movie.setDescription(rs.getString(5));
+                movie.setImdbID(rs.getFloat(9));
+                movie.setLength(rs.getString(3));
+                movie.setThumbnail(rs.getString(6));
+                movie.setSource(rs.getString(4));
+                movie.setYear(rs.getInt(8));
+                movie.setTrailer(rs.getString(10));
+                return movie;
+            }
+        };
+        List<Movie> movies = this.jdbcTemplate.query(sql, mapper);
+        System.out.println("dsad");
+        return movies;
+    }
 
 }
 

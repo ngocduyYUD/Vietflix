@@ -187,4 +187,15 @@ public class MovieService {
         return movieDal.getListGenre();
     }
 
+    public List<Movie> setFavouriteMovie(int id)
+    {
+        loadGenreLanguageData();
+        List<Movie> movies = movieDal.getListFavourite(id);
+        for(Movie movie: movies)
+        {
+            addGenreAndLanguage(movie);
+        }
+        return movies;
+    }
+
 }

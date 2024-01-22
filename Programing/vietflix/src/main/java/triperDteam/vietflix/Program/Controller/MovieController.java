@@ -121,4 +121,21 @@ public class MovieController {
         List<GenreModel> genreModels = movieService.setListGenre();
         return new ResponseEntity<>(genreModels, HttpStatus.OK);
     }
+    @GetMapping("/memberfavourite/{id}")
+    public ResponseEntity<List<Movie>> viewFavourite(@PathVariable int id)
+    {
+        try{
+            List<Movie> movies = movieService.setFavouriteMovie(id);
+            if(movies.isEmpty())
+            {
+                return new ResponseEntity<>(null, HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(movies, HttpStatus.OK);
+        }catch (Exception e)
+        {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
 }

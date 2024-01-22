@@ -15,7 +15,7 @@ public class BankService {
     }
     private Boolean checkBalance()
     {
-        return Math.random() < 0.5;
+        return true;
     }
 
     public String newTransaction(Transaction transaction)
