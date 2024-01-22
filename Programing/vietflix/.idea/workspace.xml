@@ -5,14 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a49dc17-abd6-47a8-a75a-01dd0e1b7415" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../../Astah files/VietflixAstah.asta" beforeDir="false" afterPath="$PROJECT_DIR$/../../Astah files/VietflixAstah.asta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Astah files/VietflixAstah.asta.lock" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Bank/BankService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Bank/BankService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/MovieController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/MovieController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/MovieRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/MovieRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Movie_DAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Movie_DAL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/MovieService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Member_DAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Member_DAL.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +51,7 @@
     "Application.VietflixApplication.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Programing",
+    "git-widget-placeholder": "Programing2",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "D:/DoAn/project/Vietflix/Programing/vietflix/src/main/java/tripperDteam",
@@ -118,45 +112,9 @@
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Member_DAL.java</url>
-          <line>79</line>
-          <option name="timeStamp" value="45" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Member_DAL.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="46" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Member_DAL.java</url>
-          <line>74</line>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="NONE" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Member_DAL.java</url>
-          <line>71</line>
-          <log-expression expression="           {" language="JAVA" />
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/AccountService.java</url>
           <line>70</line>
           <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Member_DAL.java</url>
-          <line>113</line>
-          <option name="timeStamp" value="53" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Member_DAL.java</url>
-          <line>115</line>
-          <option name="timeStamp" value="54" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Member_DAL.java</url>
-          <line>114</line>
-          <option name="timeStamp" value="55" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/MovieController.java</url>
@@ -169,39 +127,9 @@
           <option name="timeStamp" value="58" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/MovieService.java</url>
-          <line>192</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Movie_DAL.java</url>
           <line>374</line>
           <option name="timeStamp" value="60" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/MovieController.java</url>
-          <line>132</line>
-          <option name="timeStamp" value="61" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/MovieController.java</url>
-          <line>130</line>
-          <option name="timeStamp" value="62" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/MovieService.java</url>
-          <line>193</line>
-          <option name="timeStamp" value="63" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/MovieService.java</url>
-          <line>195</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/MovieService.java</url>
-          <line>197</line>
-          <option name="timeStamp" value="65" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
