@@ -6,7 +6,10 @@
   <component name="ChangeListManager">
     <list default="true" id="6a49dc17-abd6-47a8-a75a-01dd0e1b7415" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Member_DAL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Member_DAL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Requirement Analysis/Use case diagram/UseCase Diagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Requirement Analysis/Use case diagram/UseCase MovieInfo Diagram.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Requirement Analysis/Use case specification/Use Case Specification - Đăng ký gói xem phim .docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Requirement Analysis/Use case specification/Use Case Specification - Đăng ký gói xem phim .docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../Requirement Analysis/Use case specification/Use Case Specification - Đổi thông tin cá nhân.docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Requirement Analysis/Use case specification/Use Case Specification - Đổi thông tin cá nhân.docx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,18 +49,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.VietflixApplication.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Programing2",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/DoAn/project/Vietflix/Programing/vietflix/src/main/java/tripperDteam",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.VietflixApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Programing2&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/DoAn/project/Vietflix/Programing/vietflix/src/main/java/tripperDteam&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;
   }
-}]]></component>
+}</component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -108,11 +111,6 @@
           <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/AccountService.java</url>
           <line>70</line>
           <option name="timeStamp" value="52" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/MovieController.java</url>
-          <line>107</line>
-          <option name="timeStamp" value="56" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Movie_DAL.java</url>
