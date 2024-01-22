@@ -65,9 +65,14 @@ public class Member_DAL implements MemberRepository{
         };
         List<Package> packages = this.jdbcTemplate.query(sqlGetPackageInfo, mapperPackage);
 
-        String sqlUpdatePackage = "update \"Member\" set package_id = ?, exp_package = ? where member_id = ?";
+        Member member = getMemberInfoById(memberId);
         LocalDateTime currentTime = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        if(member.getPackage_id() != 0)
+        {
+            currentTime = LocalDateTime.parse(member.getExp_package(), formatter);
+        }
+        String sqlUpdatePackage = "update \"Member\" set package_id = ?, exp_package = ? where member_id = ?";
         for (Package pack: packages)
         {
             if(packageId == pack.getPack_id())
