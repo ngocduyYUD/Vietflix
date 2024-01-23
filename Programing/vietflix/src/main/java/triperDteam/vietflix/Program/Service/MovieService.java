@@ -29,7 +29,7 @@ public class MovieService {
     {
         List<Movie> returnMovies = new ArrayList<>();
         for (int i = 0; i < movies.size(); ) {
-            if(movies.get(i).getLanguages().contains(language))
+            if(movies.get(i).getLanguages().get(0).equals(language))
             {
                 returnMovies.add(movies.get(i));
             }
@@ -50,8 +50,6 @@ public class MovieService {
     private List<Movie>  getMachedYear(List<Movie> movies, int year)
     {
         List<Movie> returnMovies = new ArrayList<>();
-        System.out.println(Arrays.toString(movies.toArray()));
-        System.out.println(year);
         for (int i = 0; i < movies.size(); i++) {
             if(movies.get(i).getYear() == year)
             {
