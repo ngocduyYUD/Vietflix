@@ -25,34 +25,40 @@ public class MovieService {
     }
 
 
-    private void getMachedLang(List<Movie> movies, String language)
+    private List<Movie> getMachedLang(List<Movie> movies, String language)
     {
-        for (int i = 0; i < movies.size(); i++) {
-            if(!movies.get(i).getLanguages().contains(language))
+        List<Movie> returnMovies = new ArrayList<>();
+        for (int i = 0; i < movies.size(); ) {
+            if(movies.get(i).getLanguages().contains(language))
             {
-                movies.remove(i);
+                returnMovies.add(movies.get(i));
             }
         }
+        return returnMovies;
     }
-    private void getMachedGenre(List<Movie> movies, String genre)
+    private List<Movie> getMachedGenre(List<Movie> movies, String genre)
     {
+        List<Movie> returnMovies = new ArrayList<>();
         for (int i = 0; i < movies.size(); i++) {
-            if(!movies.get(i).getGenres().contains(genre))
+            if(movies.get(i).getGenres().contains(genre))
             {
-                movies.remove(i);
+                returnMovies.add(movies.get(i));
             }
         }
+        return returnMovies;
     }
-    private void getMachedYear(List<Movie> movies, int year)
+    private List<Movie>  getMachedYear(List<Movie> movies, int year)
     {
+        List<Movie> returnMovies = new ArrayList<>();
         System.out.println(Arrays.toString(movies.toArray()));
         System.out.println(year);
         for (int i = 0; i < movies.size(); i++) {
-            if(movies.get(i).getYear() != year)
+            if(movies.get(i).getYear() == year)
             {
-                movies.remove(i);
+                returnMovies.add(movies.get(i));
             }
         }
+        return returnMovies;
     }
     private void addGenreAndLanguage(Movie movie)
     {
@@ -136,16 +142,16 @@ public class MovieService {
         }
         if(!language.equals("All"))
         {
-            getMachedLang(movies, language);
+            movies = getMachedLang(movies, language);
         }
         if(!genre.equals("All"))
         {
-            getMachedGenre(movies, genre);
+            movies = getMachedGenre(movies, genre);
         }
         if(!year.equals("All"))
         {
             int intYear = Integer.parseInt(year);
-            getMachedYear(movies, intYear);
+            movies = getMachedYear(movies, intYear);
         }
         return movies;
     }
