@@ -5,42 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="6a49dc17-abd6-47a8-a75a-01dd0e1b7415" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/HELP.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/AccountController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/AdminMovieController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/ChoosePackageController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Controller/MovieController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/MemberRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Member_DAL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/MovieRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Movie_DAL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/PackageRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Package_DAL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Entity/Cart/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Entity/Member/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Entity/Movie/Movie.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Model/MemberModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Model/MovieModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/AccountService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/MovieService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/VietflixApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/.env.dbconnect" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Astah files/VietflixAstah.asta" beforeDir="false" afterPath="$PROJECT_DIR$/../../Astah files/VietflixAstah.asta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../../Mô tả bài toán .docx" beforeDir="false" afterPath="$PROJECT_DIR$/../../Mô tả bài toán .docx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/MovieService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/MovieService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -85,7 +51,7 @@
     &quot;Application.VietflixApplication.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;ClassDesign&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;Programing2&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;D:/DoAn/project/Vietflix/Programing/vietflix/src/main/java/tripperDteam&quot;,
@@ -114,5 +80,56 @@
     <ignored-roots>
       <path value="$PROJECT_DIR$/../../../" />
     </ignored-roots>
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Movie_DAL.java</url>
+          <line>153</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Movie_DAL.java</url>
+          <line>235</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Package_DAL.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Package_DAL.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/AccountService.java</url>
+          <line>70</line>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Movie_DAL.java</url>
+          <line>318</line>
+          <option name="timeStamp" value="58" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/DAL/Movie_DAL.java</url>
+          <line>374</line>
+          <option name="timeStamp" value="60" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/triperDteam/vietflix/Program/Service/MovieService.java</url>
+          <line>153</line>
+          <option name="timeStamp" value="76" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <watches-manager>
+      <configuration name="Application">
+        <watch expression="((BadSqlGrammarException)e).sql" language="JAVA" custom="org.springframework.jdbc.BadSqlGrammarException" />
+      </configuration>
+    </watches-manager>
   </component>
 </project>

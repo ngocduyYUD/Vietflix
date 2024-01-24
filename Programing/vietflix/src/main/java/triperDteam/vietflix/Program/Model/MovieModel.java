@@ -1,35 +1,41 @@
 package triperDteam.vietflix.Program.Model;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 import triperDteam.vietflix.Program.Entity.Movie.Movie;
 
+import java.util.ArrayList;
 import java.util.List;
-
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class MovieModel {
-    public String name;
-    public int length;
-    public String language;
-    public String source;
-    public String description;
-    public String director;
-    public String thumbnail;
-    public String background;
-    public String actor;
-    public List<String> genre;
-    public int year;
-    public String imdbID;
+    private String name;
+    private String length;
+    private List<String> languages = new ArrayList<>();
+    private String source;
+    private String description;
+    private String director;
+    private String thumbnail;
+    private String actor;
+    private List<String> genres = new ArrayList<>();
+    private int year;
+    private float imdbID;
+    private String trailer;
     public MovieModel(Movie movie)
     {
         this.name = movie.getName();
         this.length = movie.getLength();
-        this.language = movie.getLanguage();
+        this.languages = movie.getLanguages();
         this.source = movie.getSource();
         this.description = movie.getDescription();
         this.director = movie.getDirector();
         this.thumbnail = movie.getThumbnail();
-        this.background = movie.getBackground();
         this.actor = movie.getActor();
-        this.genre = movie.getGenre();
+        this.genres = movie.getGenres();
         this.year = movie.getYear();
         this.imdbID = movie.getImdbID();
+        this.trailer = movie.getTrailer();
     }
 }
